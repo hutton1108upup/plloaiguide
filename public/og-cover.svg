@@ -1,0 +1,53 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0B0F1A"/>
+  <rect x="44" y="44" width="1112" height="542" rx="36" fill="url(#panel)"/>
+  <circle cx="940" cy="148" r="180" fill="url(#glowA)" fill-opacity=".9"/>
+  <circle cx="214" cy="536" r="210" fill="url(#glowB)" fill-opacity=".65"/>
+  <path d="M123 115H1077" stroke="url(#line)" stroke-opacity=".3"/>
+  <path d="M123 515H1077" stroke="url(#line)" stroke-opacity=".18"/>
+  <g opacity=".24">
+    <path d="M123 115V515" stroke="url(#line)"/>
+    <path d="M250 115V515" stroke="url(#line)"/>
+    <path d="M377 115V515" stroke="url(#line)"/>
+    <path d="M504 115V515" stroke="url(#line)"/>
+    <path d="M631 115V515" stroke="url(#line)"/>
+    <path d="M758 115V515" stroke="url(#line)"/>
+    <path d="M885 115V515" stroke="url(#line)"/>
+    <path d="M1012 115V515" stroke="url(#line)"/>
+  </g>
+  <rect x="123" y="124" width="204" height="48" rx="24" fill="#13284A" stroke="#315D94"/>
+  <text x="149" y="154" fill="#BFDBFE" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">PlloAI Guide</text>
+  <text x="123" y="265" fill="white" font-family="Inter, Arial, sans-serif" font-size="78" font-weight="800">The Ultimate</text>
+  <text x="123" y="348" fill="white" font-family="Inter, Arial, sans-serif" font-size="78" font-weight="800">AI Video Generator</text>
+  <text x="123" y="406" fill="#A5B4FC" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="500">
+    Looking for PlloAI? Find the official Pollo.ai access,
+  </text>
+  <text x="123" y="445" fill="#A5B4FC" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="500">
+    models, features, and affiliate guide in one page.
+  </text>
+  <rect x="123" y="480" width="320" height="58" rx="29" fill="url(#cta)"/>
+  <text x="164" y="517" fill="white" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="800">Try Pollo.ai for Free</text>
+  <defs>
+    <linearGradient id="panel" x1="44" y1="44" x2="1156" y2="586" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#151A2D"/>
+      <stop offset="1" stop-color="#11172A"/>
+    </linearGradient>
+    <linearGradient id="cta" x1="123" y1="480" x2="443" y2="538" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#A78BFA"/>
+    </linearGradient>
+    <linearGradient id="line" x1="123" y1="315" x2="1077" y2="315" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#334155" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#334155"/>
+      <stop offset="1" stop-color="#334155" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(940 148) rotate(90) scale(180)">
+      <stop stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(214 536) rotate(90) scale(210)">
+      <stop stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#60A5FA" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
