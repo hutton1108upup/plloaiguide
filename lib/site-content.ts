@@ -18,25 +18,25 @@ export function affiliateUrl(path = '') {
 
 export const features = [
   {
-    icon: '🎬',
+    icon: 'text-to-video',
     title: 'Text-to-Video',
     description:
       'Type a simple prompt like “A cyberpunk city in rain” and watch Pollo generate a high-definition clip in seconds.',
   },
   {
-    icon: '🖼️',
+    icon: 'image-to-video',
     title: 'Image-to-Video',
     description:
       'Upload a static image. Pollo AI understands the depth and context, bringing your photo to life with realistic motion.',
   },
   {
-    icon: '⚡',
+    icon: 'fast-generation',
     title: 'Fast Generation',
     description:
       'Generation time depends on the model, selected settings, and current demand. Check the official workspace for live availability.',
   },
   {
-    icon: '🎨',
+    icon: 'style-consistency',
     title: 'Style Consistency',
     description:
       'Keep your characters and visual style consistent across multiple clips, perfect for storytelling.',
