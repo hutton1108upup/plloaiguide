@@ -4,6 +4,7 @@ import test from 'node:test';
 
 const pageSource = await readFile(new URL('../app/page.tsx', import.meta.url), 'utf8');
 const styleSource = await readFile(new URL('../app/globals.css', import.meta.url), 'utf8');
+const headerSource = await readFile(new URL('../app/site-header.tsx', import.meta.url), 'utf8');
 
 test('renders every PRD landing-page section', () => {
   for (const id of ['features', 'models', 'how-to', 'faq']) {
@@ -13,7 +14,7 @@ test('renders every PRD landing-page section', () => {
   for (const heading of [
     'The Ultimate AI Video Generator',
     'What is Pollo.ai',
-    'AI Video Models Available on Pollo AI',
+    'Featured AI Video Models on Pollo AI',
     'How to Use',
     'Frequently Asked Questions',
   ]) {
@@ -21,17 +22,13 @@ test('renders every PRD landing-page section', () => {
   }
 });
 
-test('keeps the PRD header navigation and CTA density', () => {
-  const headerNav = pageSource.match(
-    /<nav aria-label="Primary navigation">[\s\S]*?<\/nav>/,
-  )?.[0];
-
-  assert.ok(headerNav, 'primary navigation should exist');
-  assert.match(headerNav, /href="#features"/);
-  assert.match(headerNav, /href="#faq"/);
-  assert.doesNotMatch(headerNav, /href="#models"/);
+test('keeps the optimized header navigation and page CTA density', () => {
+  assert.match(pageSource, /<SiteHeader\s*\/>/);
+  assert.match(headerSource, /href: '#models'/);
+  assert.match(headerSource, /href: '#how-to'/);
+  assert.match(headerSource, /href: '#faq'/);
   assert.equal((pageSource.match(/<AffiliateButton/g) ?? []).length, 3);
-  assert.doesNotMatch(styleSource, /nav a:nth-child\(2\)\s*\{\s*display:\s*none;/);
+  assert.match(styleSource, /\.mobile-nav/);
 });
 
 test('includes affiliate semantics and the required structured data', () => {

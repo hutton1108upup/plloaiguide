@@ -1,4 +1,12 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy | PlloAI Guide',
+  description: 'Privacy practices for the independent PlloAI Guide website.',
+  alternates: { canonical: '/privacy' },
+  robots: { index: false, follow: true },
+};
 
 export default function PrivacyPage() {
   return (
