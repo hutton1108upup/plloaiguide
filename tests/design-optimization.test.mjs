@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { readFile, stat } from 'node:fs/promises';
 import test from 'node:test';
 
 async function read(relativePath) {
@@ -71,10 +71,22 @@ test('enforces touch targets and avoids hover affordance on static cards', async
 
   assert.match(css, /--tap-target:\s*2\.75rem/);
   assert.match(css, /\.brand\s*\{[^}]*?min-height:\s*var\(--tap-target\)/);
-  assert.match(css, /\.model-chip\s*\{[\s\S]*?min-height:\s*var\(--tap-target\)/);
-  assert.match(css, /\.model-family-link\s*\{[^}]*?min-width:\s*var\(--tap-target\)/);
-  assert.match(css, /\.source-note a\s*\{[^}]*?min-height:\s*var\(--tap-target\)/);
-  assert.match(css, /\.footer-links a\s*\{[\s\S]*?min-height:\s*var\(--tap-target\)/);
+  assert.match(
+    css,
+    /\.model-chip\s*\{[\s\S]*?min-height:\s*var\(--tap-target\)/,
+  );
+  assert.match(
+    css,
+    /\.model-family-link\s*\{[^}]*?min-width:\s*var\(--tap-target\)/,
+  );
+  assert.match(
+    css,
+    /\.source-note a\s*\{[^}]*?min-height:\s*var\(--tap-target\)/,
+  );
+  assert.match(
+    css,
+    /\.footer-links a\s*\{[\s\S]*?min-height:\s*var\(--tap-target\)/,
+  );
   assert.doesNotMatch(css, /\.feature-card:hover\s*\{[^}]*transform:/);
 });
 
@@ -90,8 +102,51 @@ test('gives legal routes unique noindex metadata and removes them from the sitem
     [terms, '/terms'],
   ]) {
     assert.match(source, /export const metadata/);
-    assert.match(source, /robots:\s*\{\s*index:\s*false,\s*follow:\s*true\s*\}/);
+    assert.match(
+      source,
+      /robots:\s*\{\s*index:\s*false,\s*follow:\s*true\s*\}/,
+    );
     assert.match(source, new RegExp(`canonical: ['"]${canonical}['"]`));
   }
   assert.doesNotMatch(sitemap, /\/privacy|\/terms/);
+});
+
+test('publishes sourced Pollo AI evidence media in the workflow section', async () => {
+  const page = await read('../app/page.tsx');
+  const mediaFiles = [
+    '../public/media/pollo-avatar-input.jpg',
+    '../public/media/pollo-video-model-frame.png',
+    '../public/media/pollo-avatar-output.jpg',
+  ];
+
+  for (const relativePath of mediaFiles) {
+    const fileUrl = new URL(relativePath, import.meta.url);
+    const fileStat = await stat(fileUrl);
+    assert.ok(
+      fileStat.size > 10_000,
+      `${relativePath} should contain real media`,
+    );
+  }
+
+  assert.match(page, /className="evidence-strip"/);
+  assert.match(page, /Official Pollo\.ai sample imagery/);
+});
+
+test('keeps the redesign focused on navigation and removes unsupported hero claims', async () => {
+  const page = await read('../app/page.tsx');
+
+  assert.doesNotMatch(page, /#1 rated generative video platform/i);
+  assert.match(page, /className="shell hero-inner"/);
+  assert.doesNotMatch(page, /className="hero-visual[^"]*"/);
+  assert.doesNotMatch(page, /className="text-link"/);
+  assert.match(page, /className="evidence-strip"/);
+  assert.doesNotMatch(page, /<input|<textarea|Upload your image|Generate now/i);
+});
+
+test('gives the mobile navigation an explicit close state and escape route', async () => {
+  const header = await read('../app/site-header.tsx');
+
+  assert.match(header, /menuOpen\s*\?\s*'Close navigation menu'/);
+  assert.match(header, /event\.key === 'Escape'/);
+  assert.match(header, /className="mobile-nav-scrim"/);
 });

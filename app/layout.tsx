@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: SITE.title,
   description: SITE.description,
   alternates: { canonical: '/' },
+  icons: { icon: '/favicon.svg' },
   openGraph: {
     type: 'website',
     url: SITE.domain,
@@ -24,7 +25,9 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body>{children}</body>

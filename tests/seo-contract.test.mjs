@@ -16,7 +16,10 @@ test('sets the PRD title, description, canonical and Open Graph metadata', async
     import('../lib/site-content.ts'),
   ]);
 
-  assert.match(content.SITE.title, /Pollo\.ai \(PlloAI\) - Official Access, Features & Review/);
+  assert.match(
+    content.SITE.title,
+    /Pollo\.ai \(PlloAI\) - Official Access, Features & Review/,
+  );
   assert.match(content.SITE.description, /Looking for PlloAI\?/);
   assert.equal(content.SITE.domain, 'https://plloai.pro');
   assert.match(layout, /title: SITE\.title/);
@@ -26,6 +29,7 @@ test('sets the PRD title, description, canonical and Open Graph metadata', async
   assert.match(layout, /images: \[SITE\.ogImagePath\]/);
   assert.match(layout, /twitter/);
   assert.match(layout, /images: \[SITE\.ogImagePath\]/);
+  assert.match(layout, /icons:\s*\{\s*icon:\s*['"]\/favicon\.svg['"]/);
   assert.match(layout, /index: true/);
   assert.match(layout, /follow: true/);
 });
