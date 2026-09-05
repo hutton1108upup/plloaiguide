@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { affiliateUrl } from '@/lib/site-content';
+import { BrandMark } from '@/app/brand-mark';
 
 const affiliateRel = 'sponsored noopener noreferrer';
 
@@ -15,17 +16,6 @@ const navigation = [
   { href: '#how-to', id: 'how-to', label: 'How it works' },
   { href: '#faq', id: 'faq', label: 'FAQ' },
 ] as const;
-
-function BrandMark() {
-  return (
-    <span className="brand-mark" aria-hidden="true">
-      <svg viewBox="0 0 24 24">
-        <path d="M12 2l1.5 6.5L20 10l-6.5 1.5L12 18l-1.5-6.5L4 10l6.5-1.5L12 2Z" />
-        <path d="M19 16l.7 2.3L22 19l-2.3.7L19 22l-.7-2.3L16 19l2.3-.7L19 16Z" />
-      </svg>
-    </span>
-  );
-}
 
 function ToolNavigationLinks({ onNavigate }: { onNavigate?: () => void }) {
   return toolNavigation.map((item) => (

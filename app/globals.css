@@ -135,11 +135,11 @@ h3,
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 10%);
 }
 
-.brand-mark svg {
-  width: 1rem;
-  fill: none;
-  stroke: #d8dee8;
-  stroke-width: 1.5;
+.brand-mark img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
 }
 .desktop-nav {
   display: flex;

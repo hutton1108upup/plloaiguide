@@ -7,7 +7,12 @@ export const metadata: Metadata = {
   title: SITE.title,
   description: SITE.description,
   alternates: { canonical: '/' },
-  icons: { icon: '/favicon.svg' },
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.ico',
+    apple: { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+  },
+  manifest: '/site.webmanifest',
   openGraph: {
     type: 'website',
     url: SITE.domain,

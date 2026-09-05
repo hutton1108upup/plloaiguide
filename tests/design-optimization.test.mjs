@@ -59,7 +59,7 @@ test('uses a consistent vector icon system and announces new-tab behavior', asyn
   ]);
 
   assert.match(page, /function FeatureIcon/);
-  assert.match(page, /function SparkIcon/);
+  assert.match(page, /<BrandMark\s*\/>/);
   assert.match(page, /className="sr-only">opens in a new tab/);
   assert.doesNotMatch(page, /brand-mark--footer[^>]*>PL</);
   assert.doesNotMatch(content, /🎬|🖼️|⚡|🎨/u);

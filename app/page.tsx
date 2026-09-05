@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { SiteHeader } from '@/app/site-header';
+import { BrandMark } from '@/app/brand-mark';
 import {
   SITE,
   affiliateUrl,
@@ -49,15 +50,6 @@ function SearchIcon() {
     <svg aria-hidden="true" viewBox="0 0 24 24">
       <circle cx="10.5" cy="10.5" r="6.5" />
       <path d="m15.5 15.5 5 5" />
-    </svg>
-  );
-}
-
-function SparkIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24">
-      <path d="M12 2l1.5 6.5L20 10l-6.5 1.5L12 18l-1.5-6.5L4 10l6.5-1.5L12 2Z" />
-      <path d="M19 16l.7 2.3L22 19l-2.3.7L19 22l-.7-2.3L16 19l2.3-.7L19 16Z" />
     </svg>
   );
 }
@@ -493,9 +485,7 @@ export default function Home() {
         <div className="shell footer-grid">
           <div>
             <a className="brand brand--footer" href="#top">
-              <span className="brand-mark">
-                <SparkIcon />
-              </span>
+              <BrandMark />
               <span>
                 <strong>Pollo.ai</strong> Guide
               </span>
