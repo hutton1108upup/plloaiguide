@@ -16,9 +16,9 @@ test('sets the PRD title, description, canonical and Open Graph metadata', async
     import('../lib/site-content.ts'),
   ]);
 
-  assert.match(
+  assert.equal(
     content.SITE.title,
-    /Pollo\.ai \(PlloAI\) - Official Access, Features & Review/,
+    'Pollo.ai(PlloAI) GuideOfficial Access, Features & Review | PlloAI',
   );
   assert.match(content.SITE.description, /Looking for PlloAI\?/);
   assert.equal(content.SITE.domain, 'https://plloai.pro');

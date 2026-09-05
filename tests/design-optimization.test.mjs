@@ -46,7 +46,7 @@ test('uses current, qualified conversion copy and contextual calls to action', a
 
   assert.doesNotMatch(page, /No credit card required/i);
   assert.doesNotMatch(content, /available in 2024/i);
-  assert.match(page, /Free credits available for new users/i);
+  assert.match(page, /Check current free credits and model access on the official site\./i);
   assert.match(page, /Open Pollo\.ai/);
   assert.match(page, /Try Text-to-Video/);
   assert.match(page, /Start with Free Credits/);

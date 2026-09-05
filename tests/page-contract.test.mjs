@@ -12,7 +12,7 @@ test('renders every PRD landing-page section', () => {
   }
 
   for (const heading of [
-    'The Ultimate AI Video Generator',
+    'Pollo.ai: AI Video Generator Guide',
     'What is Pollo.ai',
     'Featured AI Video Models on Pollo AI',
     'How to Use',

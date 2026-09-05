@@ -4,9 +4,9 @@ export const SITE = {
   officialDomain: 'https://pollo.ai',
   affiliateRef: 'YOUR_AFFILIATE_ID',
   title:
-    'Pollo.ai (PlloAI) - Official Access, Features & Review | Free AI Video Generator',
+    'Pollo.ai(PlloAI) GuideOfficial Access, Features & Review | PlloAI',
   description:
-    'Looking for PlloAI? Many people search "Pllo AI" but mean Pollo.ai — the powerful multi-model AI video generator. Free trial available. Create cinematic videos from text or images in seconds.',
+    'Looking for PlloAI? Explore Pollo.ai video/image features, free-plan limits, and how to get started. Visit the official site through"Pllo AI" guide.',
   modelVerifiedAt: 'August 2026',
   ogImagePath: '/og-cover.svg',
 } as const;

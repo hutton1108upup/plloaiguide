@@ -192,7 +192,7 @@ export default function Home() {
               One studio. Multiple AI video models.
             </p>
             <h1 className="reveal reveal--two">
-              The Ultimate AI Video Generator
+              Pollo.ai: AI Video Generator Guide
             </h1>
             <p className="hero-copy reveal reveal--three">
               You are looking for Pollo AI—a browser-based creative studio that
@@ -202,7 +202,7 @@ export default function Home() {
             <div className="hero-actions reveal reveal--four">
               <AffiliateButton>Open Pollo.ai</AffiliateButton>
               <span className="cta-note">
-                Free credits available for new users. Model limits vary.
+                Check current free credits and model access on the official site.
               </span>
             </div>
             <div
