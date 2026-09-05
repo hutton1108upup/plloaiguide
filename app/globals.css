@@ -378,27 +378,6 @@ h3,
   background: #0a0e14;
   scroll-margin-top: 4rem;
 }
-.workflow-heading {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 1.5rem 4rem;
-  align-items: end;
-}
-.workflow-heading .eyebrow {
-  grid-column: 1 / -1;
-  margin-bottom: 0;
-}
-.workflow-heading h2 {
-  margin: 0;
-  max-width: 680px;
-  font-size: clamp(2.25rem, 4.3vw, 3.75rem);
-  line-height: 1.05;
-  letter-spacing: -0.045em;
-}
-.workflow-heading p {
-  margin: 0;
-  color: var(--muted);
-}
 .evidence-strip {
   display: grid;
   grid-template-columns: 1fr auto 1.05fr auto 0.84fr;
@@ -495,10 +474,6 @@ h3,
   margin-inline: auto;
   text-align: center;
 }
-.section-heading--bar {
-  padding-left: 1.4rem;
-  border-left: 3px solid #64748b;
-}
 .eyebrow {
   display: block;
   margin-bottom: 0.75rem;
@@ -529,13 +504,10 @@ h3,
 .section--intro {
   background: linear-gradient(180deg, #0a0f1c, #0b101d);
 }
-.intro-grid {
-  display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: clamp(3rem, 8vw, 7rem);
-  align-items: start;
-}
 .intro-copy {
+  max-width: 690px;
+  margin: 1rem auto 0;
+  text-align: center;
   color: #aab4c6;
 }
 .intro-copy p {
@@ -1117,10 +1089,6 @@ h3,
 }
 
 @media (max-width: 900px) {
-  .workflow-heading {
-    grid-template-columns: 1fr;
-  }
-  .intro-grid,
   .models-heading,
   .how-grid {
     grid-template-columns: 1fr;
@@ -1261,9 +1229,6 @@ h3,
   .workflow-section {
     padding-block: 4.75rem;
   }
-  .workflow-heading h2 {
-    font-size: 2.3rem;
-  }
   .evidence-strip {
     grid-template-columns: 1fr;
   }
@@ -1279,9 +1244,6 @@ h3,
   }
   .section {
     padding-block: 4.5rem;
-  }
-  .section-heading--bar {
-    padding-left: 1rem;
   }
   .feature-grid {
     grid-template-columns: 1fr;
