@@ -5,6 +5,11 @@ import { affiliateUrl } from '@/lib/site-content';
 
 const affiliateRel = 'sponsored noopener noreferrer';
 
+const toolNavigation = [
+  { href: 'https://pollo.ai/ai-video', label: 'AI Video' },
+  { href: 'https://pollo.ai/ai-image-generator', label: 'AI Image' },
+] as const;
+
 const navigation = [
   { href: '#models', id: 'models', label: 'Models' },
   { href: '#how-to', id: 'how-to', label: 'How it works' },
@@ -20,6 +25,22 @@ function BrandMark() {
       </svg>
     </span>
   );
+}
+
+function ToolNavigationLinks({ onNavigate }: { onNavigate?: () => void }) {
+  return toolNavigation.map((item) => (
+    <a
+      href={item.href}
+      key={item.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={onNavigate}
+    >
+      {item.label}
+      <span aria-hidden="true">↗</span>
+      <span className="sr-only">opens in a new tab</span>
+    </a>
+  ));
 }
 
 function NavigationLinks({
@@ -100,6 +121,7 @@ export function SiteHeader() {
         </a>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
+          <ToolNavigationLinks />
           <NavigationLinks activeId={activeId} onNavigate={setCurrentSection} />
           <a
             className="nav-cta"
@@ -142,6 +164,7 @@ export function SiteHeader() {
           </summary>
           <div className="mobile-nav-panel">
             <nav aria-label="Mobile navigation">
+              <ToolNavigationLinks onNavigate={closeMenu} />
               <NavigationLinks
                 activeId={activeId}
                 onNavigate={closeMobileNav}
