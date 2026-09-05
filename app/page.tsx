@@ -231,7 +231,7 @@ export default function Home() {
           aria-labelledby="workflow-title"
         >
           <div className="shell">
-            <div className="workflow-heading">
+            <div className="section-heading section-heading--center">
               <span className="eyebrow">From idea to moving image</span>
               <h2 id="workflow-title">
                 A visual workflow, not another editing timeline.
@@ -281,8 +281,8 @@ export default function Home() {
         </section>
 
         <section className="section section--intro">
-          <div className="shell intro-grid">
-            <div className="section-heading section-heading--bar">
+          <div className="shell">
+            <div className="section-heading section-heading--center">
               <span className="eyebrow">The correct destination</span>
               <h2>
                 What is Pollo.ai <span>(and why people search “Pllo AI”)</span>
