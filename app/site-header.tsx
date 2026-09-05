@@ -22,7 +22,10 @@ function BrandMark() {
   );
 }
 
-function NavigationLinks({ activeId, onNavigate }: {
+function NavigationLinks({
+  activeId,
+  onNavigate,
+}: {
   activeId: string;
   onNavigate?: (id: string) => void;
 }) {
@@ -40,6 +43,7 @@ function NavigationLinks({ activeId, onNavigate }: {
 
 export function SiteHeader() {
   const [activeId, setActiveId] = useState('');
+  const [menuOpen, setMenuOpen] = useState(false);
   const mobileNavRef = useRef<HTMLDetailsElement>(null);
 
   useEffect(() => {
@@ -61,11 +65,28 @@ export function SiteHeader() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && mobileNavRef.current?.open) {
+        mobileNavRef.current.open = false;
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', closeOnEscape);
+    return () => document.removeEventListener('keydown', closeOnEscape);
+  }, []);
+
   const setCurrentSection = (id: string) => setActiveId(id);
+
+  const closeMenu = () => {
+    if (mobileNavRef.current) mobileNavRef.current.open = false;
+    setMenuOpen(false);
+  };
 
   const closeMobileNav = (id: string) => {
     setActiveId(id);
-    if (mobileNavRef.current) mobileNavRef.current.open = false;
+    closeMenu();
   };
 
   return (
@@ -73,28 +94,64 @@ export function SiteHeader() {
       <div className="shell header-inner">
         <a className="brand" href="#top" aria-label="Pollo.ai Guide home">
           <BrandMark />
-          <span><strong>Pollo.ai</strong> Guide</span>
+          <span>
+            <strong>Pollo.ai</strong> Guide
+          </span>
         </a>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
           <NavigationLinks activeId={activeId} onNavigate={setCurrentSection} />
-          <a className="nav-cta" href={affiliateUrl()} target="_blank" rel={affiliateRel}>
+          <a
+            className="nav-cta"
+            href={affiliateUrl()}
+            target="_blank"
+            rel={affiliateRel}
+          >
             Visit Pollo.ai
             <span aria-hidden="true">↗</span>
             <span className="sr-only">opens in a new tab</span>
           </a>
         </nav>
 
-        <details className="mobile-nav" ref={mobileNavRef}>
-          <summary aria-label="Open navigation menu">
+        {menuOpen && (
+          <button
+            className="mobile-nav-scrim"
+            type="button"
+            aria-label="Close navigation menu"
+            onClick={closeMenu}
+          />
+        )}
+
+        <details
+          className="mobile-nav"
+          ref={mobileNavRef}
+          onToggle={(event) => setMenuOpen(event.currentTarget.open)}
+        >
+          <summary
+            aria-label={
+              menuOpen ? 'Close navigation menu' : 'Open navigation menu'
+            }
+          >
             <svg aria-hidden="true" viewBox="0 0 24 24">
-              <path d="M4 7h16M4 12h16M4 17h16" />
+              {menuOpen ? (
+                <path d="m6 6 12 12M18 6 6 18" />
+              ) : (
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              )}
             </svg>
           </summary>
           <div className="mobile-nav-panel">
             <nav aria-label="Mobile navigation">
-              <NavigationLinks activeId={activeId} onNavigate={closeMobileNav} />
-              <a href={affiliateUrl()} target="_blank" rel={affiliateRel} onClick={() => closeMobileNav(activeId)}>
+              <NavigationLinks
+                activeId={activeId}
+                onNavigate={closeMobileNav}
+              />
+              <a
+                href={affiliateUrl()}
+                target="_blank"
+                rel={affiliateRel}
+                onClick={() => closeMobileNav(activeId)}
+              >
                 Visit Pollo.ai
                 <span aria-hidden="true">↗</span>
                 <span className="sr-only">opens in a new tab</span>
