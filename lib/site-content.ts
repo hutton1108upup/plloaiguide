@@ -2,7 +2,7 @@ export const SITE = {
   name: 'PlloAI Guide',
   domain: 'https://plloai.pro',
   officialDomain: 'https://pollo.ai',
-  affiliateRef: 'YOUR_AFFILIATE_ID',
+  affiliateRef: 'nguyodg',
   title:
     'Pollo.ai(PlloAI) GuideOfficial Access, Features & Review | PlloAI',
   description:
@@ -13,7 +13,9 @@ export const SITE = {
 
 export function affiliateUrl(path = '') {
   const normalizedPath = path && !path.startsWith('/') ? `/${path}` : path;
-  return `${SITE.officialDomain}${normalizedPath}?ref=${encodeURIComponent(SITE.affiliateRef)}`;
+  const url = new URL(`${SITE.officialDomain}${normalizedPath}`);
+  url.searchParams.set('ref', SITE.affiliateRef);
+  return url.toString();
 }
 
 export const features = [

@@ -7,8 +7,8 @@ import { BrandMark } from '@/app/brand-mark';
 const affiliateRel = 'sponsored noopener noreferrer';
 
 const toolNavigation = [
-  { href: 'https://pollo.ai/ai-video', label: 'AI Video' },
-  { href: 'https://pollo.ai/ai-image-generator', label: 'AI Image' },
+  { href: affiliateUrl('/ai-video'), label: 'AI Video' },
+  { href: affiliateUrl('/ai-image-generator'), label: 'AI Image' },
 ] as const;
 
 const navigation = [
@@ -23,7 +23,7 @@ function ToolNavigationLinks({ onNavigate }: { onNavigate?: () => void }) {
       href={item.href}
       key={item.href}
       target="_blank"
-      rel="noopener noreferrer"
+      rel={affiliateRel}
       onClick={onNavigate}
     >
       {item.label}
